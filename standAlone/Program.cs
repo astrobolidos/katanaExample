@@ -39,9 +39,13 @@ namespace standAlone
                 await next();
             });
 
+            //path logging middleware
+            app.Use(async (env, next) => {
+                Console.WriteLine("Requesting " + env.Request.Path);
+                await next();
+            });
 
             app.UseHelloWord();
-
         }
     }
 
