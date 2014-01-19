@@ -30,6 +30,16 @@ namespace standAlone
     {
         public void Configuration(IAppBuilder app)
         {
+            //logging middleware
+            app.Use(async (environment, next) => {
+                foreach (var pair in environment.Environment)
+                {
+                    Console.WriteLine("{0}:{1}", pair.Key, pair.Value);
+                }
+                await next();
+            });
+
+
             app.UseHelloWord();
 
         }
@@ -40,9 +50,12 @@ namespace standAlone
         public static void UseHelloWord(this IAppBuilder app)
         {
             app.Use<HelloWorldComponent>();
-        }
+        }  
     }
 
+    /// <summary>
+    /// Also known as middle ware.
+    /// </summary>
     public class HelloWorldComponent
     {
         public AppFunc _next { get; set; }
