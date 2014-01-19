@@ -37,6 +37,8 @@ namespace standAlone
                     Console.WriteLine("{0}:{1}", pair.Key, pair.Value);
                 }
                 await next();
+
+                Console.WriteLine(environment.Response.Headers["Authorization"]);
             });
 
             //path logging middleware
@@ -71,8 +73,8 @@ namespace standAlone
 
         public Task Invoke(IDictionary<string, object> environment)
         {
-            var responseStatus = environment["owin.ResponseStatusCode"] = 201;
-
+            environment["owin.ResponseStatusCode"] = 201;
+            (environment["owin.ResponseHeaders"] as IDictionary<string, string[]>)["Authorization"] = new string[] { "my auth code" };
 
             var response = environment["owin.ResponseBody"] as Stream;
             using (var writer = new StreamWriter(response))
