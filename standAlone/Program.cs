@@ -31,13 +31,7 @@ namespace standAlone
         public void Configuration(IAppBuilder app)
         {
             app.UseHelloWord();
-            //app.Use<HelloWorldComponent>();
 
-            //app.UseWelcomePage();
-
-            //app.Run(ctx => {
-            //    return ctx.Response.WriteAsync("hello world");
-            //});
         }
     }
 
