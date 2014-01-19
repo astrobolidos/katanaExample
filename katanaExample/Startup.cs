@@ -8,6 +8,7 @@ using System.Web;
 [assembly: OwinStartup(typeof(katanaExample.Startup))]
 namespace katanaExample
 {
+    //http://www.asp.net/aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
     public class Startup
     {
         public void Configuration(IAppBuilder app)
