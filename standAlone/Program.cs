@@ -43,6 +43,7 @@ namespace standAlone
             app.Use(async (env, next) => {
                 Console.WriteLine("Requesting " + env.Request.Path);
                 await next();
+                Console.WriteLine("Response status code: " + env.Response.StatusCode);
             });
 
             app.UseHelloWord();
@@ -70,6 +71,9 @@ namespace standAlone
 
         public Task Invoke(IDictionary<string, object> environment)
         {
+            var responseStatus = environment["owin.ResponseStatusCode"] = 201;
+
+
             var response = environment["owin.ResponseBody"] as Stream;
             using (var writer = new StreamWriter(response))
             {
