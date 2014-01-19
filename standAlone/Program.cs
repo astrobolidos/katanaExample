@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace standAlone
 {
     using System.IO;
+    using System.Web.Http;
     using AppFunc = Func<IDictionary<string, object>, Task>;
 
     class Program
@@ -48,7 +49,20 @@ namespace standAlone
                 Console.WriteLine("Response status code: " + env.Response.StatusCode);
             });
 
+            //web api configuration
+            ConfigureWebApi(app);
+
             app.UseHelloWord();
+        }
+
+        private void ConfigureWebApi(IAppBuilder app)
+        {
+            var config = new HttpConfiguration();
+            config.Routes.MapHttpRoute(
+                "DefaultApi", 
+                "api/{controller}/{id}", 
+                new { id = RouteParameter.Optional });
+            app.UseWebApi(config);
         }
     }
 
