@@ -2,8 +2,6 @@
 using Owin;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace standAlone
@@ -49,9 +47,10 @@ namespace standAlone
                 Console.WriteLine("Response status code: " + env.Response.StatusCode);
             });
 
-            //web api configuration
+            //web api middleware configuration
             ConfigureWebApi(app);
 
+            // hello world middleware configuration
             app.UseHelloWord();
         }
 
