@@ -12,8 +12,14 @@ namespace katanaExample
             //authenticaction middleware
             app.Use(async (env, next) =>
             {
-                env.Response.Write("authenticating: " + env.Request.Path +" \n");
+                  env.Response.Write("authenticating: " + env.Request.Path +" \n");
+                //await next();
                 await next();
+            });
+
+            app.Use(async (env, next) =>
+            {
+                await env.Response.WriteAsync("second middleware");
             });
         }
     }
