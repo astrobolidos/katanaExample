@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
 using Owin;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,10 @@ namespace signalrApp
     {
         public void Configuration(IAppBuilder app)
         {
-            //authenticaction middleware
-            app.Use( (env, next) =>
-            {
-                return  env.Response.WriteAsync("hello world");
-            });
+            var config = new HubConfiguration();
+            //app.MapHubs(config);
+            app.MapSignalR(config);
+            //app.UseStaticFolder(fl)
         }
     }
 }
