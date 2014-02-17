@@ -13,6 +13,11 @@ namespace katanaExample
             app.Use(async (env, next) =>
             {
                 await env.Response.WriteAsync("hello world");
+                await next();
+            });
+
+            app.Use(async (env, next) => {
+                await env.Response.WriteAsync("second middleware");
                 //await next();
             });
         }

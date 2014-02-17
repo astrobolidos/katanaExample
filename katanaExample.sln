@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "katanaExample", "katanaExample\katanaExample.csproj", "{1A8F9711-12E6-4A63-8749-8FB7F35B4F8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "standAlone", "standAlone\standAlone.csproj", "{B594384E-C4E3-4C33-9116-9BBDC1F275D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "signalrApp", "signalrApp\signalrApp.csproj", "{22D3A667-BA37-43C3-AEAC-94BB6B955955}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B594384E-C4E3-4C33-9116-9BBDC1F275D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B594384E-C4E3-4C33-9116-9BBDC1F275D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B594384E-C4E3-4C33-9116-9BBDC1F275D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D3A667-BA37-43C3-AEAC-94BB6B955955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D3A667-BA37-43C3-AEAC-94BB6B955955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D3A667-BA37-43C3-AEAC-94BB6B955955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D3A667-BA37-43C3-AEAC-94BB6B955955}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
