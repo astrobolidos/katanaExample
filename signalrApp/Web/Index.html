@@ -5,34 +5,27 @@
     <script src="Scripts/jquery-2.1.0.min.js"></script>
     <script src="Scripts/jquery.signalR-2.0.2.min.js"></script>
     <script src="../signalr/hubs"></script>
+    <link rel="stylesheet" href="Content/bootstrap.min.css"/>
 </head>
 <body>
-    <h1>SignalR Self Hosting</h1>
-    <div>
-        <div>
-            <textarea id="messagesText" rows="20" style="width:100%"></textarea>
-        </div>
-        <div>
-            <textarea id="newMessage" rows="3"></textarea>
-            <button id="sendMessage">Send</button>
-        </div>
+    <div class="container">
+        <h1>Signalr with Katana</h1>
+        <textarea id="messagesText" rows="10" style="width:100%"></textarea>
+        <textarea id="newMessage" rows="3"></textarea>
+        <button id="sendMessage">Send</button>
     </div>
+
     <script type="text/javascript">
         var hub = $.connection.pingHub,
         $msgText = $("#messagesText"),
         $newMessage = $("#newMessage");
 
-
         hub.client.addMessage = function (message) {
             $msgText.text($msgText.text() + "\r\n" + message);
         }
 
-        
-
-
         $.connection.hub.start().done(function () {
             $(document).on('click', '#sendMessage', function () {
-                alert('test');
                 hub.server.send($newMessage.text());
             });
         }).fail(function (err) {  alert(err);});

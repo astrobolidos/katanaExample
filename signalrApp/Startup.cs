@@ -14,9 +14,7 @@ namespace signalrApp
         public void Configuration(IAppBuilder app)
         {
             var config = new HubConfiguration();
-            //app.MapHubs(config);
             app.MapSignalR(config);
-            //app.UseStaticFolder(fl)
         }
     }
 }
