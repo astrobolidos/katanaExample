@@ -6,7 +6,7 @@ namespace authentication.Controllers
 {
     public class InfoController : ApiController
     {
-        [Authorize]
+        //[Authorize]
         public HttpResponseMessage Get()
         {
             var responseContent = new { Id = 1234, Value = "this is a value", Date = DateTime.Now };

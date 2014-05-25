@@ -21,7 +21,7 @@ namespace SimpleAuth
         public static string TokenPath { get; set; }
     }
 
-    public partial class Startup
+    public  class Startup1
     {
         private void ConfigureAuth(IAppBuilder app)
         {

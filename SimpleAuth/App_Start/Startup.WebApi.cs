@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace SimpleAuth
 {
-    public partial class Startup
+    public partial class Startup2
     {
         public void ConfigureWebApi(IAppBuilder app)
         {

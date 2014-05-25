@@ -1,9 +1,6 @@
-﻿using Microsoft.Owin;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OAuth;
+﻿
+using Microsoft.Owin;
 using Owin;
-using System;
 
 [assembly: OwinStartup(typeof(SimpleAuth.Startup))]
 namespace SimpleAuth
@@ -12,8 +9,21 @@ namespace SimpleAuth
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
-            ConfigureWebApi(app);
+            app.Use(async (env, next) =>
+            {
+                await env.Response.WriteAsync("hello world");
+                //await next();
+            });
         }
+
+        //private void ConfigureWebApi2(IAppBuilder app)
+        //{
+        //    var config = new HttpConfiguration();
+        //    config.Routes.MapHttpRoute(
+        //        "DefaultApi",
+        //        "api/{controller}/{id}",
+        //        new { id = RouteParameter.Optional });
+        //    app.UseWebApi(config);
+        //}
     }
 }
